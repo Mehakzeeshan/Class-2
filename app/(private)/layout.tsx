@@ -1,14 +1,16 @@
+// ye file layout.tsx sari tsx files ko wrap krti hai
+import Link from "next/link"
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "../globals.css";
 
 const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
+  src: "../fonts/GeistVF.woff",
   variable: "--font-geist-sans",
   weight: "100 900",
 });
 const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
+  src: "../fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
@@ -28,7 +30,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <Link href="/about">About</Link>
+      <br/> 
+      <Link href="/">Home</Link>   
+        {children}   // tsx ki files render kr rha hai 'children' pr jo likho wo sb pages pe apply hoga 
       </body>
     </html>
   );
